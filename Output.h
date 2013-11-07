@@ -16,12 +16,8 @@ namespace slm
     Millisecond m_lastUpdate;
 
   public:
-    Output(uint8_t pin) : \
-      m_pin(pin), m_lastUpdate(0) { pinMode(pin, OUTPUT); SetState(OFF); }
-
-    // Initialize with given state
-    Output(uint8_t pin, bool state) : \
-      m_pin(pin), m_lastUpdate(0) { pinMode(pin, OUTPUT); SetState(state); }
+    Output(uint8_t pin, bool state = OFF) : \
+      m_pin(pin), m_lastUpdate(0) { pinMode(pin, OUTPUT); SetState(state);}
 
     uint8_t GetPin() const { return m_pin; }
 
@@ -48,10 +44,7 @@ namespace slm
     Millisecond m_fadeDuration;
 
   public:
-    Led(uint8_t pin) : \
-      Output(pin), m_fading(false) { }
-
-    Led(uint8_t pin, bool state) : \
+    Led(uint8_t pin, bool state = OFF) : \
       Output(pin, state), m_fading(false) { }
 
     // Fades the led 'internally', but does not update its value
@@ -70,10 +63,7 @@ namespace slm
     Queue<Note> m_noteQueue;
 
   public:
-    Buzzer(uint8_t pin) : \
-      Output(pin), m_currentNoteStart(0) { }
-
-    Buzzer(uint8_t pin, bool state) : \
+    Buzzer(uint8_t pin, bool state = OFF) : \
       Output(pin, state), m_currentNoteStart(0) { }
 
     const Note& GetCurrentNote() const { return m_currentNote; }
