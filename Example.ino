@@ -1,3 +1,6 @@
+// A video demonstration of this program is available at:
+//   https://dl.dropboxusercontent.com/u/71313978/arduino.avi
+
 #include "SLMusic.h"
 using namespace slm;
 
